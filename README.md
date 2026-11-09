@@ -31,3 +31,9 @@ Open `index.html` in a modern browser or run `node test.mjs` with Node.js 20+. T
 ## Scope
 
 Synthetic lab inputs and deterministic rules. Review results before applying them to a real incident. The workflow currently uses rules or templates and has no model integration.
+
+## What this demonstrates
+
+**Turn an alert into an evidence-backed analyst handoff.** Compare 28 failed logins plus a success with a failure-only case. The recommended next steps preserve analyst ownership. Counts alone cannot prove credential stuffing. Treat alert content as untrusted when adding a model.
+
+[Reference guidance](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)

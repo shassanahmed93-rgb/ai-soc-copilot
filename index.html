@@ -6,7 +6,7 @@
   &quot;failures&quot;: 28,
   &quot;successes&quot;: 1,
   &quot;account&quot;: &quot;demo-user&quot;
-}</textarea><div class="actions"><button id="run">Run lab</button><button class="secondary" id="reset">Reset fixture</button></div></div><div class="card"><h2>Evidence output</h2><pre id="output" aria-live="polite"></pre><div class="actions"><button class="secondary" id="save">Download JSON</button></div></div></section></main><script>
+}</textarea><div class="actions"><button id="run">Run lab</button><button class="secondary" id="reset">Reset fixture</button><button class="secondary" id="compare">Load comparison</button></div></div><div class="card"><h2>Evidence output</h2><pre id="output" aria-live="polite"></pre><div class="actions"><button class="secondary" id="save">Download JSON</button></div></div></section><section class="card" style="margin-top:18px"><p class="tag">What this demonstrates</p><h2>Turn an alert into an evidence-backed analyst handoff</h2><p>Compare 28 failed logins plus a success with a failure-only case. The recommended next steps preserve analyst ownership. Counts alone cannot prove credential stuffing. Treat alert content as untrusted when adding a model.</p><a href="https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html">Reference guidance</a></section></main><script>
 "use strict";
 function analyze(input) {
   const likely = input.kind === "credential_stuffing" && input.failures >= 10 && input.successes > 0;
@@ -28,6 +28,7 @@ function run() {
   document.getElementById("save").disabled = report === undefined;
 }
 document.getElementById("run").onclick = run;
+document.getElementById("compare").onclick = () => { input.value = "{\n  \"alertId\": \"A-302\",\n  \"kind\": \"credential_stuffing\",\n  \"failures\": 28,\n  \"successes\": 0,\n  \"account\": \"demo-user\"\n}"; run(); };
 document.getElementById("reset").onclick = () => { input.value = fixture; run(); };
 document.getElementById("save").onclick = () => {
   if (report === undefined) return;
