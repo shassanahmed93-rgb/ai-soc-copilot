@@ -1,0 +1,7 @@
+{
+  "alertId": "A-301",
+  "kind": "credential_stuffing",
+  "failures": 28,
+  "successes": 1,
+  "account": "demo-user"
+}
